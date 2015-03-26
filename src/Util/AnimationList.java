@@ -1,6 +1,7 @@
 package Util;
 
 import javafx.scene.image.Image;
+import java.util.Collection;
 import Model.Game;
 
 public class AnimationList {
@@ -20,11 +21,19 @@ public class AnimationList {
 		this.frameStepCounter = 0;
 	}
 	
+	/**
+	 * The default frame rate for an animationList is one is not provided is 12 frames per second. This seems
+	 * to be the most fluid for most animations I have run in the past.
+	 */
 	public AnimationList() {
 		this(12);
 	}
 
 	
+	/**
+	 * Returns the appropriate image for the specific frame in an animation
+	 * @return
+	 */
 	public Image getImage() {
 		frameStepCounter++;
 		if (frameStepCounter > frameStep) {
@@ -39,6 +48,24 @@ public class AnimationList {
 		return this.current.getData();
 		
 		
+	}
+	
+	/**
+	 * Allows the user to change the frame rate of the animation
+	 * @param frameStep
+	 */
+	public void setFrameRate(int frameStep) {
+		this.frameStep = frameStep;
+	}
+	
+	/**
+	 * Adds a collection of images to the animation list in order.
+	 * @param images
+	 */
+	public void addCollection(Collection<Image> images) {
+		for (Image im: images) {
+			addImage(im);
+		}
 	}
 	
 	/**
