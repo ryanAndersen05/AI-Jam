@@ -11,6 +11,15 @@ public class Time {
 		lastTime = currentTime;
 	}
 	
+	
+	public float getCuttentTime() {
+		return System.currentTimeMillis();
+	}
+	
+	public float getLastUpdateTime() {
+		return lastTime;
+	}
+	
 	public float deltaTime() {
 		return deltaTime;
 	}
