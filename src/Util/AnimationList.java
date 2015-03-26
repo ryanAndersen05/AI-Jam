@@ -1,6 +1,7 @@
 package Util;
 
 import javafx.scene.image.Image;
+import Model.Game;
 
 public class AnimationList {
 	private Node head;
@@ -8,11 +9,38 @@ public class AnimationList {
 	private Node current;
 
 	private int size;
+	
+	
+	
+	private int frameStep; //This is the frames per second that this particular animation will run at
+	private int frameStepCounter;
 
+	public AnimationList(int frameStep) {
+		this.frameStep = Game.FRAME_RATE / frameStep;
+		this.frameStepCounter = 0;
+	}
+	
 	public AnimationList() {
-
+		this(12);
 	}
 
+	
+	public Image getImage() {
+		frameStepCounter++;
+		if (frameStepCounter > frameStep) {
+			this.current = this.current.getNext();
+		}
+		if (current == null) {
+			return null;
+		}
+		if (current.getData() == null) {
+			return null;
+		}
+		return this.current.getData();
+		
+		
+	}
+	
 	/**
 	 * Returns the size of the AnimationList
 	 * @return
@@ -40,9 +68,11 @@ public class AnimationList {
 			tail.setNext(newNode);
 			tail = newNode;
 		}
+		tail.setNext(head);
 
 		size++;
 	}
+	
 	
 	/**
 	 * Checks to see if the AnimationList is empty

@@ -2,7 +2,7 @@ package Util;
 
 /**
  * All methods that deal with time will be made here. Time is a useful tool if you want the game to play with the same no matter how
- * fast the game renders
+ * fast the game renders.
  * @author Ryan
  *
  */
