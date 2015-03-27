@@ -11,6 +11,7 @@ import Util.State;
  */
 public class StateMachine {
 	ArrayList<String> states;
+	public 
 	
 	public StateMachine() {
 		this.states = new ArrayList<String>();
@@ -25,6 +26,9 @@ public class StateMachine {
 				
 			}
 		}
+		if (!validState) return;
+		
+		
 	}
 
 }

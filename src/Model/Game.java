@@ -18,7 +18,10 @@ public class Game {
 	
 	
 	private void draw() {
-		
+		for (GameObject obj: objects) {
+			obj.update();
+			
+		}
 	}
 
 }
