@@ -11,8 +11,6 @@ public class AnimationList {
 
 	private int size;
 	
-	
-	
 	private int frameStep; //This is the frames per second that this particular animation will run at
 	private int frameStepCounter;
 
